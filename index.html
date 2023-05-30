@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Expense Tracker</h1>
+    <form @submit.prevent="addExpense">
+      <input type="text" v-model="newExpense.description" placeholder="Description">
+      <input type="number" v-model="newExpense.amount" placeholder="Amount">
+      <button type="submit">Add Expense</button>
+    </form>
+    <ul>
+      <li v-for="expense in expenses" :key="expense.id">
+        <span>{{ expense.description }}</span>
+        <span>{{ expense.amount }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
